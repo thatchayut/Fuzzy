@@ -1,3 +1,5 @@
+import math
+
 def vbitter(input):
     member_value = 0
     if(input <= 2):
@@ -9,15 +11,17 @@ def vbitter(input):
 def low(input):
     member_value = 0
     if(1 <= input <= 3):
-        member_value = 1 - math.fabs((input - 2) / 2)
+        member_value = 1 - math.fabs((input - 2) / 1)
     else:
         member_value = 0
     return member_value
 
-def med(input):
-     member_value = 0
+def med(input, alpha):
+    member_value = 0
     if(2 <= input <= 4):
-        member_value = 1 - math.fabs((input - 3) / 2)
+        member_value = 1 - math.fabs((input - 3) / 1)
+        if(member_value > alpha):
+            member_value = alpha
     else:
         member_value = 0
     return member_value
@@ -25,7 +29,7 @@ def med(input):
 def bitter(input):
     member_value = 0
     if(3 <= input <= 5):
-        member_value = 1 - math.fabs((input - 4) / 2)
+        member_value = 1 - math.fabs((input - 4) / 1)
     else:
         member_value = 0
     return member_value

@@ -1,3 +1,5 @@
+import math
+
 def vlow(input):
     member_value = 0
     if(input <= 4):
