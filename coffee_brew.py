@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 plt.rcParams.update({'figure.max_open_warning': 0})
 import numpy as np
 import rule
+import bitter
 
 def getInput():
     check = False
@@ -29,6 +30,16 @@ def  findMax(list1, list2):
         for i in range(0, len(list1)):
             y.append(max(list1[i], list2[i]))
     return y
+
+def findCentroid(list_x, list_y):
+    sum_yb = 0
+    sum_b = 0
+    for i in range(0, len(list_y)):
+        sum_yb += (list_x[i] * list_y[i])
+        sum_b += list_y[i]
+    de_y = sum_yb / sum_b
+    return de_y
+
 
 def main():
     amount_water, amount_coffee = getInput()
@@ -90,9 +101,12 @@ def main():
     plt.figure(26)
     plt.plot(x, y)
     plt.savefig('overall.png', bbox_inches='tight') 
-    # plt.plot([1, 2, 3, 4], [1, 4, 9, 130])
-    # plt.savefig('demo.png', bbox_inches='tight')
-    # # plt.show()
+
+    de_y = findCentroid(x, y)
+    output = bitter.convertOutput(de_y)
+    print()
+    print("Centroid : " + str(de_y))
+    print("Bitter level : " + output)
 
 if __name__ == '__main__':
     main()

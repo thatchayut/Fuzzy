@@ -49,3 +49,38 @@ def vbitter(input, alpha):
     else:
          member_value = 0
     return member_value  
+
+def convertOutput(value):
+    max = 0
+    if(value <= 2):
+        member_value = ((-1)*value) + 2
+        if(member_value >= max):
+            max = member_value
+            output = "very low"
+    if(1 <= value <= 3):
+        member_value = 1 - math.fabs((value - 2) / 1)
+        if(member_value >= max):
+            max = member_value
+            output = "low"
+    if(2 <= value <= 4):
+        member_value = 1 - math.fabs((value - 3) / 1)
+        if(member_value >= max):
+            max = member_value
+            output = "medium"
+    if(3 <= value <= 5):
+        member_value = 1 - math.fabs((value - 4) / 1)
+        if(member_value >= max):
+            max = member_value
+            output = "bitter"
+    if(value >= 4):
+        member_value = (value - 4)
+        if(member_value >= max):
+            max = member_value
+            output = "very bitter"
+    return output
+
+
+
+    
+
+    
